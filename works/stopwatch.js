@@ -42,13 +42,19 @@ const reset = () => {
         startTime = Date.now();
         totalStopTime = 0;
         isReseted = true;
-        ViewRapTime(0);
+        AddRapTime(0);
+        const element = document.querySelector("#rapTime");
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
     } else {
-        ViewRapTime((Date.now() - startTime - totalStopTime) / 1000);
+        AddRapTime((Date.now() - startTime - totalStopTime) / 1000);
     }
 };
 
-function ViewRapTime(time) {
-    const element = document.querySelector("#rapTime");
-    element.textContent = "ラップタイム: " + time.toFixed(2);
+function AddRapTime(time) {
+    const element = document.querySelector("#rapTimeBox");
+    let createElement = document.createElement("div");
+    createElement.textContent = "ラップタイム: " + time.toFixed(2);
+    element.insertBefore(createElement, element.firstChild);
 }
