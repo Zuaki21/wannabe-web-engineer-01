@@ -43,7 +43,7 @@ const reset = () => {
         totalStopTime = 0;
         isReseted = true;
         AddRapTime(0);
-        const element = document.querySelector("#rapTime");
+        const element = document.querySelector("#rapTimeBox");
         while (element.firstChild) {
             element.removeChild(element.firstChild);
         }
